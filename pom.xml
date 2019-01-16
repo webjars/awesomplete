@@ -11,16 +11,14 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>awesomplete</artifactId>
-    <version>0-SNAPSHOT</version>
+    <version>1.1.4-SNAPSHOT</version>
     <name>awesomplete</name>
     <description>WebJar for awesomplete</description>
     <url>http://webjars.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>6328816</upstream.version>
-        <upstream.commit>63288167fd21b3c082c8f7e993782c11b6ca5950</upstream.commit>
-        <upstream.url>https://github.com/LeaVerou/awesomplete/archive/${upstream.commit}.zip</upstream.url>
+        <upstream.url>https://github.com/LeaVerou/awesomplete/archive/v${version.unsnapshot}.zip</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
         <requirejs>
             {
@@ -57,6 +55,20 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>com.jamesward</groupId>
+                <artifactId>unsnapshot-maven-plugin</artifactId>
+                <version>0.2</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>unsnapshot</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.7</version>
@@ -72,7 +84,7 @@
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/${project.artifactId}-${upstream.commit}" includes="awesomplete*" />
+                                    <fileset dir="${project.build.directory}/${project.artifactId}-${version.unsnapshot}" includes="awesomplete*" />
                                 </move>
                             </target>
                         </configuration>
