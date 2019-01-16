@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>awesomplete</artifactId>
-    <version>1.1.4-SNAPSHOT</version>
+    <version>1.1.4</version>
     <name>awesomplete</name>
     <description>WebJar for awesomplete</description>
     <url>http://webjars.org</url>
@@ -49,7 +49,7 @@
         <url>http://github.com/webjars/awesomplete</url>
         <connection>scm:git:https://github.com/webjars/awesomplete.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/awesomplete.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>awesomplete-1.1.4</tag>
     </scm>
 
     <build>
